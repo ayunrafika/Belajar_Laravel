@@ -12,34 +12,16 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-route::get('/hello', function() {
-    return 'hello Universitas Terbuka';
-});
-
-
-route::get('/helloview', function (){
-    return view('helloview');
-});
-
-route::get('/about', function (){
-    return view('about',[
-    'title' => 'About'
-    ]);
-});
-
-route::get('/login', function (){
-    return view('login', [
-    'title' => 'Login'
+route::get('/', function () {
+    $username = "Rafika";
+    
+    return view('home', [
+        'user' => $username,
     ]);
 });
 
 route::get('/home', function () {
-    $username = "Doni";
+    $username = "Rafika";
 
     $dataMahasiswa = [
         [
@@ -65,7 +47,7 @@ route::get('/home', function () {
         [
             "nama" => "Rafika",
             "NIM" => "012345579",
-            "nilai" => 100
+            "nilai" => 90
         ]
         ];
 
@@ -76,5 +58,17 @@ route::get('/home', function () {
         'isMember' => true,
         'grade' => 100,
         'dataMahasiswa' => $dataMahasiswa
+    ]);
+});
+
+route::get('/about', function (){
+    return view('about', [
+    'title' => 'About Us',
+    ]);
+});
+
+route::get('/login', function (){
+    return view('login', [
+    'title' => 'Login',
     ]);
 });

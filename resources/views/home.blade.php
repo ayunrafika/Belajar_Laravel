@@ -2,79 +2,58 @@
 
 @section('content')
 
+<div class="text-dark p-2 mt-3">
+    <h3> Selamat Datang, {{ $user }}! </h3>
+    <h6> Copyright {{ date('Y') }} Universitas Terbuka </h6>
+</div>
 
-    <div class="text-bg-dark p-3">
-        <h3>Selamat Datang {{ $user }}!</h3>
-        <p>Copyright {{ date('Y') }} Universitas Terbuka </p>
-    </div>
+<div class="mt-4 p-2 mb-1">
+    <h5> Data Anda </h5>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Home</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Introduction</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
-                    </li>
-
-                    <a class="btn btn-primary" href="/login" role="button">Login</a>
-
-
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
-
-    <h5>Usia : {{ $usia }} </h5>
-
-    For Loop
-    @for ($i = 1; $i < 10; $i++)
-        item ke-{{ $i }}
-    @endfor
+    <h6> Usia: {{ $usia }} </h6>
 
     {{-- if else if --}}
     @if ($usia >= 21)
-        <h5>Kategori Dewasa</h5>
+        <h6> Kategori Usia: Dewasa </h6>
     @elseif ($usia >= 13)
-        <h5>Kategori Remaja</h5>
+        <h6> Kategori Usia: Remaja </h6>
     @else
-        <h5>Kategori Anak-anak</h5>
+        <h6> Kategori Usia: Anak-anak </h6>
     @endif
 
-    <h5>Member : {{ $isMember }} </h5>
-    @if ($isMember)
-        <h5>Anda Adalah Member</h5>
-    @else
-        <h5>Anda Bukan Member</h5>
+    <h6> Member: {{ $isMember }}
+        @if ($isMember)
+            (Anda Adalah Member)
+        @else
+            (Anda Bukan Member)
+    </h6>
     @endif
+
+    {{-- For Loop --}}
+    {{-- @for ($i = 1; $i < 10; $i++)
+    item ke-{{ $i }}
+@endfor --}}
 
     {{-- Switch --}}
-    @switch ($grade)
-        @case($grade >= 90)
-            <h5>Nilai Anda : A</h5>
-        @break
+    {{-- @switch ($grade)
+    @case($grade >= 90)
+        <h5>Nilai Anda : A</h5>
+    @break
 
-        @case($grade >= 80)
-            <h5>Nilai Anda : B</h5>
-        @break
+    @case($grade >= 80)
+        <h5>Nilai Anda : B</h5>
+    @break
 
-        @default
-            <h5>Nilai Anda : C</h5>
-    @endswitch
+    @default
+        <h5>Nilai Anda : C</h5>
+@endswitch --}}
 
-    <h2>Daftar Mahasiswa</h2>
+    <div class="container mt-5">
+    </div>
+
+    <div class="p-2 mb-1 bg-warning text-white">
+        <h5> Daftar Mahasiswa </h5>
+    </div>
 
     <table class="table table-bordered">
         <thead>
@@ -126,16 +105,14 @@
         </tbody>
     </table>
 
-    @endsection
+{{-- For Each
+  @foreach ($dataMahasiswa as $item)
+    <ul>
+        <li>Nama  : {{ $item['nama']}} </li>
+        <li>NIM  : {{ $item['NIM']}} </li>
+        <li>Nilai  : {{ $item['nilai']}} </li>  
+    </ul>
+  @endforeach --}}
 
+@endsection
 
-    {{-- For Each
-      @foreach ($dataMahasiswa as $item)
-        <ul>
-            <li>Nama  : {{ $item['nama']}} </li>
-            <li>NIM  : {{ $item['NIM']}} </li>
-            <li>Nilai  : {{ $item['nilai']}} </li>  
-        </ul>
-      @endforeach --}}
-
-    
