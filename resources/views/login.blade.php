@@ -18,7 +18,7 @@
   <label class="form-check-label" for="exampleCheck1">Tetap masuk</label>
 </div>
 </div>
-<a class="btn btn-warning" href="/login" role="button">Login</a>
+<a class="btn btn-primary" href="/login" role="button">Login</a>
 </div>
 
 {{-- <div class="container mt-4 mb-4 p-2">

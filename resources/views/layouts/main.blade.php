@@ -22,8 +22,10 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
 
-@include('partials.navbar')
+{{-- Navbar --}}
+<x-navbar :$title />
 
+{{-- Content --}}
 <div class="container mt-4">
     @yield('content')
 </div>

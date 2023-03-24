@@ -1,15 +1,18 @@
-<nav class="navbar navbar-expand-lg bg-primary">
+<nav class="navbar navbar-expand-lg bg-secondary" data-bs-theme="dark">
     <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-1 mb-lg-1">
                 <li class="nav-item">
-                    <a class="nav-link text-light {{ ($title === "Home" ) ? 'active' : '' }}" href="/home">Home</a>
+                    <a class="nav-link {{ $title === 'Home' ? 'active' : '' }}" href="/home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light {{ ($title === "About" ) ? 'active' : '' }}" href="/about">About Us</a>
+                    <a class="nav-link {{ $title === 'About Us' ? 'active' : '' }}" href="/about">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light {{ ($title === "Login" ) ? 'active' : '' }}" href="/login">Login</a>
+                    <a class="nav-link {{ $title === 'Login' ? 'active' : '' }}" href="/auth/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ $title === 'Register' ? 'active' : '' }}" href="/auth/register">Register</a>
                 </li>
             </ul>
             

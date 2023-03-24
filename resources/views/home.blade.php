@@ -51,7 +51,7 @@
     <div class="container mt-5">
     </div>
 
-    <div class="p-2 mb-1 bg-warning text-white">
+    <div class="p-2 mb-1 bg-primary text-white">
         <h5> Daftar Mahasiswa </h5>
     </div>
 
@@ -105,6 +105,8 @@
         </tbody>
     </table>
 
+    <x-button text = "Submit"/>
+    
 {{-- For Each
   @foreach ($dataMahasiswa as $item)
     <ul>

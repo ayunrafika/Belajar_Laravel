@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,61 +17,21 @@ use Illuminate\Support\Facades\Route;
 */
 route::get('/', function () {
     $username = "Rafika";
-    
+    $dataMahasiswa = "";
     return view('home', [
-        'user' => $username,
+            'title' => 'Home',
+            'user' => $username,
+            'usia' => 18,
+            'isMember' => true,
+            'grade' => 100,
+            'dataMahasiswa' => $dataMahasiswa
     ]);
 });
 
-route::get('/home', function () {
-    $username = "Rafika";
+route::get('/home', [HomeController::class, 'index'] );
 
-    $dataMahasiswa = [
-        [
-            "nama" => "Yadi",
-            "NIM" => "012345678",
-            "nilai" => 100
-        ],
-        [
-            "nama" => "Evi",
-            "NIM" => "012345679",
-            "nilai" => 85
-        ],
-        [
-            "nama" => "Ferry",
-            "NIM" => "012345689",
-            "nilai" => 80
-        ],
-        [
-            "nama" => "Menanda",
-            "NIM" => "012345659",
-            "nilai" => 70
-        ],
-        [
-            "nama" => "Rafika",
-            "NIM" => "012345579",
-            "nilai" => 90
-        ]
-        ];
+route::get('/about', [AboutController::class, 'index'] );
 
-    return view('home', [
-        'title' => 'Home',
-        'user' => $username,
-        'usia' => 18,
-        'isMember' => true,
-        'grade' => 100,
-        'dataMahasiswa' => $dataMahasiswa
-    ]);
-});
-
-route::get('/about', function (){
-    return view('about', [
-    'title' => 'About Us',
-    ]);
-});
-
-route::get('/login', function (){
-    return view('login', [
-    'title' => 'Login',
-    ]);
-});
+// AUTH
+route::get('/auth/login', [AuthController::class, 'indexLogin']);
+route::get('/auth/register', [AuthController::class, 'indexRegister']);
