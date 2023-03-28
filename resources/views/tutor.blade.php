@@ -14,8 +14,8 @@
         <tr>
             <th scope="col">No</th>
             <th scope="col">Nama</th>
+            <th scope="col">ID Tutor</th>
             <th scope="col">Bidang Keahlian</th>
-            <th scope="col">Email</th>
             <th scope="col">Action</th>
         </tr>
     </thead>
@@ -24,8 +24,8 @@
             <tr>
                 <th scope="row"> {{ $loop->index + 1 }} </th>
                 <td>{{ $itemTutor['nama'] }}</td>
+                <td>{{ $itemTutor['ID Tutor'] }}</td>
                 <td>{{ $itemTutor['bidang keahlian'] }}</td>
-                <td>{{ $itemTutor['personal']['email'] }}</td>
                 
                 <td>
                 <x-button-link text="Detail" url="/detailTutor/{{ $itemTutor['id'] }}" style="background-color: #212c5f" />

@@ -23,15 +23,17 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/home', [HomeController::class, 'index'] );
-Route::get('/detail/{id}', [HomeController::class, 'detail'] );
-
-Route::get('/tutor', [HomeController::class, 'tutor'] );
-Route::get('/detailTutor/{id}', [HomeController::class, 'detailTutor'] );
+// Group Route
+// Home
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/home', 'index');
+    Route::get('/detail/{id}', 'detail');
+    Route::get('/tutor', 'tutor');
+    Route::get('/detailTutor/{id}','detailTutor');
+});
 
 Route::get('/about', [AboutController::class, 'index'] );
 
-// AUTH
+// AUTH (contoh route jika tidak dilakukan grouping seperti HomeController)
 Route::get('/auth/login', [AuthController::class, 'indexLogin']);
-
 Route::get('/auth/register', [AuthController::class, 'indexRegister']);
