@@ -15,23 +15,23 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-route::get('/', function () {
-    $username = "Rafika";
-    $dataMahasiswa = "";
-    return view('home', [
-            'title' => 'Home',
-            'user' => $username,
-            'usia' => 18,
-            'isMember' => true,
-            'grade' => 100,
-            'dataMahasiswa' => $dataMahasiswa
+
+Route::get('/', function () {
+    $title = "";
+    return view('welcome', [
+            'title' => 'welcome',
     ]);
 });
 
-route::get('/home', [HomeController::class, 'index'] );
+Route::get('/home', [HomeController::class, 'index'] );
+Route::get('/detail/{id}', [HomeController::class, 'detail'] );
 
-route::get('/about', [AboutController::class, 'index'] );
+Route::get('/tutor', [HomeController::class, 'tutor'] );
+Route::get('/detailTutor/{id}', [HomeController::class, 'detailTutor'] );
+
+Route::get('/about', [AboutController::class, 'index'] );
 
 // AUTH
-route::get('/auth/login', [AuthController::class, 'indexLogin']);
-route::get('/auth/register', [AuthController::class, 'indexRegister']);
+Route::get('/auth/login', [AuthController::class, 'indexLogin']);
+
+Route::get('/auth/register', [AuthController::class, 'indexRegister']);

@@ -4,7 +4,6 @@
 
 <div class="text-dark p-2 mt-3">
     <h3> Selamat Datang, {{ $user }}! </h3>
-    <h6> Copyright {{ date('Y') }} Universitas Terbuka </h6>
 </div>
 
 <div class="mt-4 p-2 mb-1">
@@ -28,6 +27,7 @@
             (Anda Bukan Member)
     </h6>
     @endif
+</div>
 
     {{-- For Loop --}}
     {{-- @for ($i = 1; $i < 10; $i++)
@@ -51,7 +51,7 @@
     <div class="container mt-5">
     </div>
 
-    <div class="p-2 mb-1 bg-primary text-white">
+    <div class="p-2 mb-1 text-white" style="background-color: #f7c82d">
         <h5> Daftar Mahasiswa </h5>
     </div>
 
@@ -64,6 +64,7 @@
                 <th scope="col">Nilai</th>
                 <th scope="col">Kategori</th>
                 <th scope="col">Keterangan</th>
+                <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -100,21 +101,13 @@
                             @default
                                 BL
                         @endswitch
+                    <td>
+                        <x-button-link text="Detail" url="/detail/{{ $item['id'] }}" style="background-color: #212c5f" />
+                    </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-
-    <x-button text = "Submit"/>
-    
-{{-- For Each
-  @foreach ($dataMahasiswa as $item)
-    <ul>
-        <li>Nama  : {{ $item['nama']}} </li>
-        <li>NIM  : {{ $item['NIM']}} </li>
-        <li>Nilai  : {{ $item['nilai']}} </li>  
-    </ul>
-  @endforeach --}}
 
 @endsection
 

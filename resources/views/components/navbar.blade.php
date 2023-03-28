@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-secondary" data-bs-theme="dark">
+<nav class="navbar sticky-top navbar-expand-lg text-light" style="background-color:#212c5f" data-bs-theme="dark">
     <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-1 mb-lg-1">
@@ -13,6 +13,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ $title === 'Register' ? 'active' : '' }}" href="/auth/register">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ $title === 'Tutor' ? 'active' : '' }}" href="/tutor">Daftar Tutor</a>
                 </li>
             </ul>
             

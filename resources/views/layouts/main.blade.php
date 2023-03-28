@@ -26,10 +26,13 @@
 <x-navbar :$title />
 
 {{-- Content --}}
-<div class="container mt-4">
-    @yield('content')
+<div>
+    <div class="container mt-4">
+        @yield('content')
+    </div>  
 </div>
 
+<x-footer :$title />
 
 </body>
 
