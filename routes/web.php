@@ -35,5 +35,8 @@ Route::controller(HomeController::class)->group(function () {
 Route::get('/about', [AboutController::class, 'index'] );
 
 // AUTH (contoh route jika tidak dilakukan grouping seperti HomeController)
-Route::get('/auth/login', [AuthController::class, 'indexLogin']);
-Route::get('/auth/register', [AuthController::class, 'indexRegister']);
+// Route::get('/auth/login', [AuthController::class, 'indexLogin']);
+Route::controller(AuthController::class)->group(function () {
+    Route::get('/auth/login', 'indexLogin');
+    Route::get('/auth/register', 'indexRegister');
+});
