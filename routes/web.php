@@ -39,4 +39,7 @@ Route::get('/about', [AboutController::class, 'index'] );
 Route::controller(AuthController::class)->group(function () {
     Route::get('/auth/login', 'indexLogin');
     Route::get('/auth/register', 'indexRegister');
+    Route::post('/auth/register', 'storeRegister');
+    Route::post('/auth/login', 'storeLogin');
+    Route::post('/auth/logout', 'storeLogout');
 });

@@ -1,6 +1,15 @@
 @extends('layouts.main')
 
 @section ('content')
+
+{{-- Alert Message --}}
+  @if (session('login-error'))
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>{{ session('login-error') }}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Tutup"></button>
+  </div>
+  @endif
+
 <div class="text-dark p-2 mt-3">
     <h3> Halaman Login </h3>
   </div>
@@ -46,18 +55,29 @@
       <div class="col-lg-8">
         <div class="card-body py-5 px-md-5">
 
-          <form>
-            <!-- Email input -->
-            <div class="form-outline mb-4">
-              <input type="email" id="form2Example1" class="form-control" />
-              <label class="form-label" for="form2Example1">Username atau Email</label>
-            </div>
+          <form action="/auth/login" method="POST">
+            @csrf
 
-            <!-- Password input -->
-            <div class="form-outline mb-4">
-              <input type="password" id="form2Example2" class="form-control" />
-              <label class="form-label" for="form2Example2">Password</label>
-            </div>
+            <div class="form-outline mb-2">
+              <label class="form-label" for="email">Alamat Email</label>
+              <input type="email" id="email" name="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" />
+              @error('email')
+              <div class="invalid-feedback">
+                  {{ $message }}
+              </div>
+              @enderror
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-2">
+              <label class="form-label" for="password">Password</label>
+              <input type="password" id="password" name="password" class="form-control @error('password') is-invalid @enderror" />
+              @error('password')
+              <div class="invalid-feedback">
+                  {{ $message }}
+              </div>
+              @enderror
+          </div>
 
             <!-- 2 column grid layout for inline styling -->
             <div class="row">
@@ -71,10 +91,18 @@
 
               
           <!-- Submit button -->
-          <div class="col-lg-15">
+          {{-- <div class="col-lg-15">
             <a type="button" class="btn btn-block text-light mt-4" style="background-color: #f7c82d" href="/auth/login">Login</a>
             <a type="button" class="btn btn-block text-light mt-4" style="background-color: #f7c82d" href="/auth/register">Daftar</a>
-          </div>
+          </div> --}}
+
+            <div class="form-text">
+            Belum punya akun? <a href="/auth/register" class="text-decoration-none">Daftar</a>
+            </div>
+            
+            <div class="col-lg-15 mt-2 py-2">
+            <x-button type="submit" text="Login" color="warning" />
+            </div>
           </form>
 
         </div>

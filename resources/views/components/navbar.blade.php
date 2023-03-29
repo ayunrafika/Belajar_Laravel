@@ -8,21 +8,29 @@
                 <li class="nav-item">
                     <a class="nav-link {{ $title === 'About Us' ? 'active' : '' }}" href="/about">About Us</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ $title === 'Login' ? 'active' : '' }}" href="/auth/login">Login</a>
-                </li>
+                
                 <li class="nav-item">
                     <a class="nav-link {{ $title === 'Register' ? 'active' : '' }}" href="/auth/register">Register</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ $title === 'Tutor' ? 'active' : '' }}" href="/tutor">Daftar Tutor</a>
                 </li>
+                {{-- Login --}}
+                <li class="nav-item">
+                    <a class="nav-link {{ $title === 'Login' ? 'active' : '' }}" href="/auth/login">Login</a>
+                </li>
+                {{-- Logout --}}
+                <li class="nav-item">
+                    <form action="auth/logout" method="POST">
+                    @csrf
+                    <x-button type="submit" color="outline-warning" text="Log Out" />
+                </li>
             </ul>
             
-            <form class="d-flex" role="search">
+            {{-- <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Type here" aria-label="Search">
                 <button class="btn btn-light" type="submit">Search</button>
-            </form>
+            </form> --}}
         </div>
     </div>
 </nav>
