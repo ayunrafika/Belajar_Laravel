@@ -2,6 +2,7 @@
 
 @section ('content')
     <h3>Detail Mahasiswa | {{ $id }}</h3>
+    <x-button-link url="/mahasiswa/edit/{{ $id }}" text="Edit" btnColor="outline-warning" textColor="black" />
     
     <div class="card mt-5 mb-5">
     

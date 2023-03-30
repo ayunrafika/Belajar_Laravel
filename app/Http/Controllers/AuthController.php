@@ -27,6 +27,8 @@ class AuthController extends Controller
     public function storeRegister(Request $request)
     {
         //Validation
+        // dd($request->all());
+
         $validatedData = $request->validate([
             //"attribute_name" => "rules"
             "name" => "required|min:3|max:50",
@@ -47,7 +49,7 @@ class AuthController extends Controller
         // Password Encryption
         $validatedData['password'] = Hash::make($validatedData['password']);
 
-        // Case jika name berbeda, misal nama
+        // Case jika name berbeda, misal bukan 'name' tapi 'nama'
         // User::create([
         //     "name" => $validatedData["name"],
         //     "password" => $validatedData["password"],
@@ -63,8 +65,8 @@ class AuthController extends Controller
     {
         // Validation
         $credentials = $request->validate([
-            'email' => 'required', 'email',
-            'password' => 'required|min:8',
+            'email' => 'required',
+            'password' => 'required',
         ]);
         
         // Check Credentials

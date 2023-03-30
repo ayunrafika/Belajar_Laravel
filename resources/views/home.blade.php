@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="text-dark p-2 mt-3">
-    <h3> Selamat Datang, {{ $user }}! </h3>
+    <h3> Selamat Datang, {{ auth()->user()->name }}! </h3>
 </div>
 
 <div class="mt-4 p-2 mb-1">
@@ -48,9 +48,11 @@
         <h5>Nilai Anda : C</h5>
 @endswitch --}}
 
-    <div class="container mt-5">
-    </div>
 
+    <div class="container mt-3 mb-3 p-1">
+    <x-button-link text="Tambah Mahasiswa" url="/mahasiswa/tambah" style="background-color: #212c5f" />
+    </div>
+    
     <div class="p-2 mb-1 text-white" style="background-color: #f7c82d">
         <h5> Daftar Mahasiswa </h5>
     </div>
