@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -75,8 +76,9 @@ class AuthController extends Controller
             // regenerate session
             $request->session()->regenerate();
             
-            // view home
-            return redirect()->intended('/home');
+            // view mahasiswa
+            return redirect()->intended('/mhs/mahasiswa');
+            
         }
         
         // if not succeed, then view alert message

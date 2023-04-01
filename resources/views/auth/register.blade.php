@@ -29,7 +29,7 @@
                     <img src="/img/Login.jpg" alt="Login" class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
                 </div>
                 <div class="col-lg-8">
-                    <div class="card-body py-5 px-md-5">
+                    <div class="card-body py-3 px-md-3">
 
                         <form action="/auth/register" method="POST">
                             @csrf

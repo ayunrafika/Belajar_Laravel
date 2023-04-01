@@ -29,7 +29,7 @@
                 <div class="col-lg-8">
                     <div class="card-body py-5 px-md-5">
 
-                        <form action="/mahasiswa/tambah" method="POST">
+                        <form action="/mhs/mahasiswa/tambah" method="POST">
                             @csrf
                             {{-- generated --}}
                             {{-- <input type="hidden" name="token" value={{ csrf_token() }}> --}}

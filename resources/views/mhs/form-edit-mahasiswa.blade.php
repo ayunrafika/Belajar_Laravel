@@ -29,9 +29,10 @@
                 <div class="col-lg-8">
                     <div class="card-body py-5 px-md-5">
 
-                        <form action="/mahasiswa/edit" method="POST">
-                            @csrf
+                        <form action="/mhs/mahasiswa/edit/{{ $data['id'] }}" method="POST">
                             @method('PUT')
+                            @csrf
+                            
                             {{-- generated --}}
                             {{-- <input type="hidden" name="token" value={{ csrf_token() }}> --}}
 
@@ -51,7 +52,7 @@
                             <div class="form-outline mb-2">
                                 <label class="form-label" for="NIM">NIM</label>
                                 <input type="number" id="NIM" name="NIM"
-                                    class="form-control @error('NIM') is-invalid @enderror" name="NIM" value="{{ old('NIM', $data['NIM']) }}">
+                                    class="form-control @error('NIM') is-invalid @enderror" name="NIM" value="{{ old('NIM', $data['NIM']) }}" readonly >
                                 @error('NIM')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -114,6 +115,7 @@
 
                             <div class="col-lg-15 mt-2 py-2">
                                 <x-button type="submit" text="Update" color="warning" />
+                                <x-button-link url="/mhs/mahasiswa" text="Kembali" btnColor="primary" />
                             </div>
                         </form>
                     </div>

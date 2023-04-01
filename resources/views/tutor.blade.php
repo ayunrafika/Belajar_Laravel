@@ -2,7 +2,13 @@
 
 @section ('content')
 
+<h3> Selamat Datang, Tutor! </h3>
+
 <div class="container mt-5">
+</div>
+
+<div class="container mt-3 mb-3 p-1">
+    <x-button-link text="Tambah Tutor" url="/tutor/tambah" style="background-color: #212c5f" />
 </div>
 
 <div class="p-2 mb-1 text-white" style="background-color: #f7c82d">
@@ -29,10 +35,13 @@
                 
                 <td>
                 <x-button-link text="Detail" url="/detailTutor/{{ $itemTutor['id'] }}" style="background-color: #212c5f" />
+                
                 </td>
             </tr>
         @endforeach
     </tbody>
 </table>
 
+{{-- Pagination --}}
+{{ $dataTutor->links() }}
 @endsection

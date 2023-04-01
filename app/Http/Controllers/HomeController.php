@@ -5,40 +5,49 @@ namespace App\Http\Controllers;
 use App\Models\Mahasiswa;
 use App\Models\Tutor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class HomeController extends Controller
 {
-    public function index()
-    {
-        $username = "Rafika";   
 
-            return view('home', [
-                'title' => 'Home',
-                'dataMahasiswa' => Mahasiswa::all(),
-                'user' => $username,
+// HOME and ABOUT
+
+public function index()
+{
+    return view('home', [
+        'title' => 'Home',
+    ]); 
+}
+
+public function about()
+{
+    return view('about', [
+        'title' => 'About Us',
+    ]); 
+}
+    
+// MAHASISWA
+    
+    public function mahasiswa()
+    {
+        // $username = "Rafika";   
+        // if (!Gate::allows('isMahasiswa')) {
+        //     abort(403);
+        // }
+            return view('mhs.mahasiswa', [
+                'title' => 'Daftar Mahasiswa',
+                'dataMahasiswa' => Mahasiswa::paginate(2),
+                // 'user' => $username,
                 'usia' => 17,
                 'isMember' => true,
                 'grade' => 100,
             ]);
     }
 
-    public function tutor()
-    {
-        $username = "Rafika";   
-
-            return view('tutor', [
-                'title' => 'Tutor',
-                'dataTutor' => Tutor::all(),
-                'user' => $username,
-                'usia' => 17,
-                'isMember' => true,
-                'grade' => 100,
-            ]);
-    }
 
     public function detail(Request $request)
     {
-        return view('detail', [
+        return view('mhs.detail', [
             'title' => 'Detail mahasiswa',
             'id' => $request->id,
             'data' => Mahasiswa::find($request->id)
@@ -47,7 +56,7 @@ class HomeController extends Controller
 
     public function indexAddMahasiswa()
     {
-        return view('form-mahasiswa', [
+        return view('mhs.form-mahasiswa', [
             'title' => 'Tambah Data Mahasiswa'
         ]);
     }
@@ -72,46 +81,68 @@ class HomeController extends Controller
 
         Mahasiswa::create($validatedData);
 
-        return redirect('/home')->with('success', 'Berhasil Tambah Data Mahasiswa!');
+        return redirect("/mhs/mahasiswa")->with('success', 'Berhasil Tambah Data Mahasiswa!');
     }
 
     public function indexUpdateMahasiswa(Request $request)
     {
-        return view('form-edit-mahasiswa',[
+        return view('mhs.form-edit-mahasiswa',[
             'title' => "Edit Mahasiswa",
             'data' => Mahasiswa::find($request->id)
         ]);
     }
 
-    public function storeUpdateMahasiswa(Request $request)
+    public function storeUpdateMahasiswa(Request $request, $id)
     {
-        dd($request->all());
-        // return view('form-edit-mahasiswa',[
-        //     'title' => "Edit Mahasiswa",
-        //     'data' => Mahasiswa::find($request->id)
-        // ]);
+        $validatedData = $request->validate([
+            "nama" => "|min:3",
+            "NIM" => "min:4",
+            "nilai" => "|integer|between:0,100",
+            "alamat" => "",
+            "gender" => "",
+            "usia" => "|between:0,100",
+        ]);
+        
+        // dd($request->all());
+        // $data = Mahasiswa::find($id);
+        // $data->nama = $request->input('nama');
+        // $data->NIM = $request->input('NIM');
+        // $data->gender = $request->input('gender');
+        // $data->nilai = $request->input('nilai');
+        // $data->usia = $request->input('usia');
+        // $data->alamat = $request->input('alamat');
+        // $data->update();
+
+        Mahasiswa::find($id)->update($validatedData);
+
+        return redirect("/mhs/detail/$id")->with('success', 'Berhasil Update Data Mahasiswa!');
+        // ->with('success', ["Berhasil Update Data Mahasiswa!", "Update Data"]);
+    }
+    
+    public function destroyMahasiswa($id)
+    {
+        
+        // delete by primary key ($id)
+        Mahasiswa::destroy($id);
+
+        return redirect("/mhs/mahasiswa")->with('deleted', 'Berhasil Hapus Data Mahasiswa');
     }
 
-    public function detailTutor(Request $request)
+// TUTOR
+public function tutor()
+{
+        return view('tutor', [
+            'title' => 'Tutor',
+            'dataTutor' => Tutor::paginate(2),
+        ]);
+}
+
+public function detailTutor(Request $request)
     {
         return view('detailTutor', [
             'title' => 'Detail tutor',
             'id' => $request->id,
             'dataTutor' => Tutor::find($request->id)
-        ]); 
-    }
-
-    public function home()
-    {
-        return view('home', [
-            'title' => 'Home',
-        ]); 
-    }
-
-    public function about()
-    {
-        return view('about', [
-            'title' => 'About Us',
         ]); 
     }
 }
