@@ -16,7 +16,8 @@
         </div>
     @endif
 
-    <h3> Selamat Datang, Mahasiswa! </h3>
+    <h5><b>{{Auth::user()->name}}</b> login sebagai <b>{{Auth::user()->role}}</b>.</h5>   
+
 
     {{-- <div class="mt-4 p-2 mb-1">
         <h5> Data Anda </h5>
@@ -72,7 +73,7 @@
         <h5> Daftar Mahasiswa </h5>
     </div>
 
-    <table class="table table-bordered">
+    <table class="table table-bordered mb-3">
         <thead>
             <tr>
                 <th scope="col">No</th>

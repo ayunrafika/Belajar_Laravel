@@ -16,13 +16,13 @@ return new class extends Migration
         Schema::create('tutors', function (Blueprint $table) {
             $table->id();
             $table->string("nama");
-            $table->integer("ID Tutor")->unique();
+            $table->integer("id_tutor")->unique();
             $table->text("email");
-            $table->integer("periode mengajar");
+            $table->integer("periode_mengajar");
             $table->text("alamat");
             $table->boolean("gender");
             $table->integer("usia");
-            $table->text("bidang keahlian");
+            $table->text("bidang_keahlian");
             $table->timestamps();
         });
     }

@@ -77,7 +77,7 @@ class AuthController extends Controller
             $request->session()->regenerate();
             
             // view mahasiswa
-            return redirect()->intended('/mhs/mahasiswa');
+            return redirect()->intended('/home');
             
         }
         

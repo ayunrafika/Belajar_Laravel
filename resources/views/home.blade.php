@@ -4,8 +4,9 @@
 {{-- <div class="text-dark p-2 mt-3">
     <h3> Unit Program Belajar Jarak Jauh (UPBJJ) Universitas Terbuka Yogyakarta </h3>
   </div> --}}
-
-  <div id="carouselExampleIndicators" class="carousel slide">
+ 
+  
+    <div id="carouselExampleIndicators" class="carousel slide">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -13,13 +14,13 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="img/Welcome.jpg" class="d-block" width="700" alt="Welcome">
+        <img src="img/Welcome.jpg" class="d-block img-fluid" width="800" alt="Welcome">
       </div>
       <div class="carousel-item">
-        <img src="img/Carousel2.jpg" class="d-block" width="450" alt="Pendaftaran">
+        <img src="img/Carousel2.jpg" class="d-block img-fluid" alt="Pendaftaran">
       </div>
       <div class="carousel-item">
-        <img src="img/gedung-UT.jpg" class="d-block" width="800" alt="Gedung UT">
+        <img src="img/gedung-UT.jpg" class="d-block img-fluid" alt="Gedung UT">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

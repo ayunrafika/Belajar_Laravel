@@ -16,10 +16,19 @@ Route::get('/', function () {
 // HOME
 Route::controller(HomeController::class)->group(function () {
     Route::get('/home', 'index');
-    
-    Route::get('/tutor', 'tutor');
-    Route::get('/detailTutor/{id}','detailTutor')->middleware('admin');
 
+    // TUTOR
+    Route::get('/ttr/tutor', 'tutor');
+    Route::get('/ttr/detailtutor/{id}','detailTutor');
+    Route::get('/ttr/tutor/tambah', 'indexAddTutor');
+    Route::post('/ttr/tutor/tambah', 'storeTutor');
+
+    Route::get('/ttr/tutor/edit/{id}', 'indexUpdateTutor');
+    Route::put('/ttr/detailtutor/edit/{id}', 'storeUpdateTutor');
+
+    Route::delete('/ttr/tutor/delete/{id}', 'destroyTutor');
+
+    // MAHASISWA
     Route::get('/mhs/mahasiswa', 'mahasiswa');
     Route::get('/mhs/detail/{id}', 'detail');
     Route::get('/mhs/mahasiswa/tambah', 'indexAddMahasiswa');
@@ -46,3 +55,4 @@ Route::controller(AuthController::class)->group(function () {
 
 // ->middleware('guest')->name('login')
 // ->middleware('guest')
+// ->middleware('admin')

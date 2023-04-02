@@ -9,11 +9,19 @@
                 <li class="nav-item">
                     <a class="nav-link {{ $title === 'About Us' ? 'active' : '' }}" href="/about">About Us</a>
                 </li>
-
+                {{-- <li class="nav-item">
+                    <a class="nav-link {{ $title === 'Tutor' ? 'active' : '' }}" href="/ttr/tutor">Tutor</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ $title === 'Mahasiswa' ? 'active' : '' }}" href="/mhs/mahasiswa">Mahasiswa</a>
+                </li> --}}
             @auth
                 @canany(['isTutor', 'isAdmin'])
+                {{-- <li class="nav-item">
+                    <a class="nav-link {{ Request::is('tutor*') ? 'active' : '' }}" href="/ttr/tutor">Tutor</a>
+                </li> --}}
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('tutor*') ? 'active' : '' }}" href="/tutor">Tutor</a>
+                    <a class="nav-link {{ (request()->is('tutor*')) ? 'active' : '' }}" href="/ttr/tutor">Tutor</a>
                 </li>
                 @endcanany
             
@@ -23,7 +31,6 @@
                 </li>
                 @endcanany
             @endauth
-
             </ul>
 
 

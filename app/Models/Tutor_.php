@@ -8,56 +8,61 @@ class Tutor
         [
             "id" => 1,
             "nama" => "Sarono",
-            "bidang keahlian" => "Ilmu Komputer",
+            "id_tutor" => "1234",
+            "bidang_keahlian" => "Ilmu Komputer",
             "personal" => [
                 "email" => "sarono@gmail.com",
                 "alamat" => "Jogja",
                 "gender" => 1,
-                "periode mengajar" => 2022,
+                "periode_mengajar" => 2022,
             ]
         ],
         [
             "id" => 2,
             "nama" => "Diana",
-            "bidang keahlian" => "Perencanaan Wilayah dan Kota",
+            "id_tutor" => "1235",
+            "bidang_keahlian" => "Perencanaan Wilayah dan Kota",
             "personal" => [
                 "email" => "diana@gmail.com",
                 "alamat" => "Bantul",
                 "gender" => 0,
-                "periode mengajar" => 2023,
+                "periode_mengajar" => 2023,
             ]
         ],
         [
             "id" => 3,
             "nama" => "Marlina",
-            "bidang keahlian" => "Ilmu Biologi",
+            "id_tutor" => "1236",
+            "bidang_keahlian" => "Ilmu Biologi",
             "personal" => [
                 "email" => "marlina@gmail.com",
                 "alamat" => "Wates",
                 "gender" => 0,
-                "periode mengajar" => 1999,
+                "periode_mengajar" => 1999,
             ]
         ],
         [
             "id" => 4,
             "nama" => "Musiran",
-            "bidang keahlian" => "Pendidikan Guru",
+            "id_tutor" => "1237",
+            "bidang_keahlian" => "Pendidikan Guru",
             "personal" => [
                 "email" => "musiran@gmail.com",
                 "alamat" => "Bantul",
                 "gender" => 1,
-                "periode mengajar" => 1998,
+                "periode_mengajar" => 1998,
             ]
         ],
         [
             "id" => 5,
             "nama" => "Nana",
-            "bidang keahlian" => "Sastra Inggris",
+            "id_tutor" => "1238",
+            "bidang_keahlian" => "Sastra Inggris",
             "personal" => [
                 "email" => "nana07@gmail.com",
                 "alamat" => "Jakarta",
                 "gender" => 0,
-                "periode mengajar" => 2001,
+                "periode_mengajar" => 2001,
             ]
         ]
         ];
