@@ -76,7 +76,7 @@ class AuthController extends Controller
             // regenerate session
             $request->session()->regenerate();
             
-            // view mahasiswa
+            // view Home, coba: jika login sbg Mahasiswa view ke Mahasiswa tambahin GATE
             return redirect()->intended('/home');
             
         }

@@ -34,17 +34,22 @@
             <th scope="col">No</th>
             <th scope="col">Nama</th>
             <th scope="col">ID Tutor</th>
-            <th scope="col">Bidang Keahlian</th>
+            <th scope="col">Mata Kuliah</th>
             <th scope="col">Action</th>
         </tr>
     </thead>
     <tbody>
+        
         @foreach ($dataTutor as $itemTutor)
             <tr>
                 <th scope="row"> {{ $loop->index + 1 }} </th>
                 <td>{{ $itemTutor['nama'] }}</td>
                 <td>{{ $itemTutor['id_tutor'] }}</td>
-                <td>{{ $itemTutor['bidang_keahlian'] }}</td>
+                <td>
+                    <a href="/ttr/detail-matakuliah/detail{{ $itemTutor->mataKuliah->id }}" class="text-decoration-none">
+                        {{ $itemTutor->mataKuliah->nama }}</a>
+                    </td>
+                {{-- <td>{{ $itemTutor->mataKuliah->nama }}</td> --}}
                 
                 <td>
                 <x-button-link text="Detail" url="/ttr/detailtutor/{{ $itemTutor['id'] }}" style="background-color: #212c5f" />

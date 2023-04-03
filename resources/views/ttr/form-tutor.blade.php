@@ -31,7 +31,7 @@
 
                         <form action="/ttr/tutor/tambah" method="POST">
                             @csrf
-      
+
                             <!-- Name input -->
                             <div class="form-outline mb-2">
                                 <label class="form-label" for="nama">Nama</label>
@@ -72,7 +72,8 @@
                             <div class="form-outline mb-2">
                                 <label class="form-label" for="periode_mengajar">Periode Mengajar</label>
                                 <input type="number" id="periode_mengajar" name="periode_mengajar"
-                                    class="form-control @error('periode_mengajar') is-invalid @enderror" name="periode_mengajar">
+                                    class="form-control @error('periode_mengajar') is-invalid @enderror"
+                                    name="periode_mengajar">
                                 @error('periode_mengajar')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -124,13 +125,27 @@
                             <div class="form-outline mb-2">
                                 <label class="form-label" for="bidang_keahlian">Bidang Keahlian</label>
                                 <input type="text" id="bidang keahlian" name="bidang_keahlian"
-                                    class="form-control @error('bidang_keahlian') is-invalid @enderror" value="{{ old('bidang_keahlian') }}" />
+                                    class="form-control @error('bidang_keahlian') is-invalid @enderror"
+                                    value="{{ old('bidang_keahlian') }}" />
                                 @error('bidang_keahlian')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
+
+                            <!-- Mata Kuliah input -->
+                            {{-- <div class="form-outline mb-2">
+                                <label class="form-label" for="mata_kuliah_id">Mata Kuliah</label>
+                                <input type="text" id="mata_kuliah_id" name="mata_kuliah_id"
+                                    class="form-control @error('mata_kuliah_id') is-invalid @enderror"
+                                    value="{{ old('mata_kuliah_id') }}" />
+                                @error('mata_kuliah_id')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div> --}}
 
                             <div class="col-lg-15 mt-2 py-2">
                                 <x-button type="submit" text="Tambah" color="warning" />

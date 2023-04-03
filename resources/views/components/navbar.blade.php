@@ -27,9 +27,12 @@
             
                 @canany(['isMahasiswa', 'isAdmin'])
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('mahasiswa*') ? 'active' : '' }}" href="/mhs/mahasiswa">Mahasiswa</a>
+                    <a class="nav-link {{ $title === 'Mahasiswa' ? 'active' : '' }}" href="/mhs/mahasiswa">Mahasiswa</a>
                 </li>
                 @endcanany
+            
+            {{-- <a class="nav-link {{ Request::is('mahasiswa*') ? 'active' : '' }}" href="/mhs/mahasiswa">Mahasiswa</a> --}}
+            
             @endauth
             </ul>
 

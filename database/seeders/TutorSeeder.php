@@ -17,57 +17,62 @@ class TutorSeeder extends Seeder
     {
         Tutor::create([
             "nama" => "Sarono",
-            "ID Tutor" => 1234,
+            "id_tutor" => 1234,
             "email" => "sarono@gmail.com",
-            "periode mengajar" => 2022,
+            "periode_mengajar" => 2022,
             "alamat" => "Jogja",
             "gender" => 1,
             "usia" => 50,
-            "bidang keahlian" => "Ilmu Komputer",
+            "bidang_keahlian" => "Ilmu Komputer",
+            "mata_kuliah_id" => 1,
         ]);
 
         Tutor::create([
             "nama" => "Diana",
-            "ID Tutor" => 1235,
+            "id_tutor" => 1235,
             "email" => "diana@gmail.com",
-            "periode mengajar" => 2023,
+            "periode_mengajar" => 2023,
             "alamat" => "Bantul",
             "gender" => 0,
             "usia" => 50,
-            "bidang keahlian" => "Perencanaan Wilayah dan Kota",
+            "bidang_keahlian" => "Perencanaan Wilayah dan Kota",
+            "mata_kuliah_id" => 2,
         ]);
         
         Tutor::create([
             "nama" => "Marlina",
-            "ID Tutor" => 1236,
+            "id_tutor" => 1236,
             "email" => "marlina@gmail.com",
-            "periode mengajar" => 1999,
+            "periode_mengajar" => 1999,
             "alamat" => "Wates",
             "gender" => 0,
             "usia" => 45,
-            "bidang keahlian" => "Ilmu Biologi",
+            "bidang_keahlian" => "Ilmu Biologi",
+            "mata_kuliah_id" => 3,
         ]);
 
         Tutor::create([
             "nama" => "Musiran",
-            "ID Tutor" => 1237,
+            "id_tutor" => 1237,
             "email" => "musiran@gmail.com",
-            "periode mengajar" => 1998,
+            "periode_mengajar" => 1998,
             "alamat" => "Bantul",
             "gender" => 1,
             "usia" => 60,
-            "bidang keahlian" => "Pendidikan Guru",
+            "bidang_keahlian" => "Pendidikan Guru",
+            "mata_kuliah_id" => 4,
         ]);
 
         Tutor::create([
             "nama" => "Nana",
-            "ID Tutor" => 1238,
+            "id_tutor" => 1238,
             "email" => "nana07@gmail.com",
-            "periode mengajar" => 2001,
+            "periode_mengajar" => 2001,
             "alamat" => "Jakarta",
             "gender" => 0,
             "usia" => 35,
-            "bidang keahlian" => "Sastra Inggris",
+            "bidang_keahlian" => "Sastra Inggris",
+            "mata_kuliah_id" => 5,
         ]);
 
     }

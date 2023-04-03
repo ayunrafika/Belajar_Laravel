@@ -121,7 +121,7 @@ public function about()
         //     abort(403);
         // }
             return view('mhs.mahasiswa', [
-                'title' => 'Daftar Mahasiswa',
+                'title' => 'Mahasiswa',
                 'dataMahasiswa' => Mahasiswa::paginate(5),
                 // 'user' => $username,
                 'usia' => 17,

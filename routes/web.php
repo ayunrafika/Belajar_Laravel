@@ -3,7 +3,9 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Models\MataKuliah;
 use Illuminate\Support\Facades\Route;
+
 
 Route::get('/', function () {
     $title = "";
@@ -56,3 +58,11 @@ Route::controller(AuthController::class)->group(function () {
 // ->middleware('guest')->name('login')
 // ->middleware('guest')
 // ->middleware('admin')
+
+// Route Model Binding
+Route::get('/ttr/detail-matakuliah/detail{mataKuliah}', function(MataKuliah $mataKuliah) {
+    return view('/ttr/detail-matakuliah', [
+        'title' => 'Detail Mata Kuliah',
+        'data' => $mataKuliah
+    ]);
+});
